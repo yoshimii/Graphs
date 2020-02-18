@@ -162,7 +162,7 @@ class Graph:
                     path_copy.append(neighbor)
                     s.push(path_copy)        
 
-    def dfs_recursive(self, starting_vertex):
+    def dfs_recursive(self, starting_vertex, destination_vertex, visited=set()):
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
@@ -170,7 +170,21 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass  # TODO
+        s = Stack()
+        path = [starting_vertex]
+        s.push(path)
+        while s.size() > 0:
+            p1 = s.pop()
+            p = p1[-1]
+            if p == destination_vertex:
+                return p1
+            if p not in visited:
+                visited.add(p)
+                print(p)
+                for neighbor in self.get_neighbors(p):
+                    path_copy = p1.copy()
+                    path_copy.append(neighbor)
+                    s.push(path_copy)
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
