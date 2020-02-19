@@ -81,7 +81,7 @@ class Graph:
                 for neighbor in self.get_neighbors(v):
                     q.push(neighbor)
 
-    def dft_recursive(self, vertex, visited=None):
+    def dft_recursive(self, vertex, visited=None, path=None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
