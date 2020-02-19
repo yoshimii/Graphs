@@ -1,19 +1,4 @@
-from util import Stack, Queue
-"""Each ListNode holds a reference to its previous node
-as well as its next node in the List."""
-class ListNode:
-    def __init__(self, value, prev=None, next=None):
-        self.value = value
-        self.prev = prev
-        self.next = next
-    """Wrap the given value in a ListNode and insert it
-    after this node. Note that this node could already
-    have a next node it is point to."""
-    def insert_after(self, value):
-        current_next = self.next
-        self.next = ListNode(value, self, current_next)
-        if current_next:
-            current_next.prev = self.next
+from util import Stack
             
 class Graph:
     
@@ -64,6 +49,7 @@ class Graph:
         longest_path = [starting_node]
         visited = set()
         s.push(longest_path)
+        # 3. Traverse your graph
         while s.size() > 0:
             lp1 = s.pop()
             n = lp1[-1]            
