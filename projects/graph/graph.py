@@ -47,7 +47,7 @@ class Graph:
             v = q.dequeue()
             # Check if it's been visited
             if v not in visited:
-            # If it has been visited
+            # If it has not been visited
                 # Mark it as visited
                 print(v)
                 visited.add(v)
@@ -81,13 +81,15 @@ class Graph:
                 for neighbor in self.get_neighbors(v):
                     q.push(neighbor)
 
-    def dft_recursive(self, vertex, visited=set()):
+    def dft_recursive(self, vertex, visited=None, path=None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
 
         This should be done using recursion.
         """
+        if visited is None:
+            visited = set()
         s = Stack() # neighbors to pop off and check if in visited
         s.push(vertex)
         # Check if the node is visited
@@ -162,7 +164,7 @@ class Graph:
                     path_copy.append(neighbor)
                     s.push(path_copy)        
 
-    def dfs_recursive(self, starting_vertex, destination_vertex, visited=set()):
+    def dfs_recursive(self, starting_vertex, destination_vertex, visited=None):
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
@@ -170,6 +172,8 @@ class Graph:
 
         This should be done using recursion.
         """
+        if visited is None:
+            visited = set()
         s = Stack()
         path = [starting_vertex]
         s.push(path)
