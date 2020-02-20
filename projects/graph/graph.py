@@ -47,7 +47,7 @@ class Graph:
             v = q.dequeue()
             # Check if it's been visited
             if v not in visited:
-            # If it has been visited
+            # If it has not been visited
                 # Mark it as visited
                 print(v)
                 visited.add(v)
